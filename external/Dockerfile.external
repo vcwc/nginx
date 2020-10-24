@@ -1,0 +1,15 @@
+ARG  VCW_TAG=1.19.3
+FROM nginx:${VCW_TAG}
+
+RUN mkdir /vcw && mkdir /vcw/pwd && cp /docker-entrypoint.sh /vcw/pwd/entrypoint.sh && chmod 777 /vcw/pwd/entrypoint.sh
+ENTRYPOINT ["/vcw/pwd/entrypoint.sh"]
+
+LABEL co.vcweb.schema-version="1.0" \
+      co.vcweb.label="vcwc/nginx/external - External Build" \
+      co.vcweb.description="The Official Nginx image with modified entrypoint." \
+      co.vcweb.realm="vcwc" \
+      co.vcweb.library="nginx" \
+      co.vcweb.image="external" \
+      co.vcweb.flavor="" \
+      co.vcweb.tag="${VCW_TAG}" \
+      co.vcweb.maintainer="vcw@vcweb.co"
