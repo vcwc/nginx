@@ -1,0 +1,25 @@
+---
+version: '3'
+services:
+
+# START SERVICE vcwc/nginx/rewrite
+  nginx:
+    image: ${VCW_REGISTRY}vcw/nginx.base:${VCW_TAG}
+    environment: ['VCW_STACK_NGINX_CONF_LOCATION=${VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_PATH}', 'VCW_STACK_NGINX_CONF_PROXY_PASS=${VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_UPSTREAM}']
+    command: []
+    volumes: []
+    ports: []
+    networks: [${VCW_STACK_NETWORKGLOBAL}_overlay, ${VCW_STACK_NETWORKLOCAL}_overlay]
+    deploy:
+      mode: replicated
+      resources:
+        limits:
+          memory: '${VCW_STACK_URL_REWRITE_DEPLOY_RESOURCES_LIMITS_MEMORY}'
+        reservations:
+          memory: '${VCW_STACK_URL_REWRITE_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
+${VCW_STACK_URL_REWRITE_COMPOSE_EXTENSIONS}
+# END SERVICE vcwc/nginx/rewrite
+
+networks: {${VCW_STACK_NETWORKGLOBAL}_overlay: { external: true }, ${VCW_STACK_NETWORKLOCAL}_overlay: { external: true }}
+volumes: {}
+${VCW_STACK_GLOBAL_COMPOSE_EXTENSIONS}
