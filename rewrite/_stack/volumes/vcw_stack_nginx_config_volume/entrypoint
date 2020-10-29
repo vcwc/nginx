@@ -1,3 +1,0 @@
-echo "hello"
-envsubst < /conteco/pwd/conteco.template > /etc/nginx/conf.d/conteco.conf
-nginx -g 'daemon off;'

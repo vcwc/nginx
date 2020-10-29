@@ -1,0 +1,3 @@
+echo "hello"
+envsubst < /vcw/pwd/urlrewrite.template > /etc/nginx/conf.d/urlrewrite.conf
+nginx -g 'daemon off;'
