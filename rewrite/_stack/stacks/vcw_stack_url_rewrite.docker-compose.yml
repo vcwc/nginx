@@ -4,7 +4,7 @@ services:
 
 # START SERVICE vcwc/nginx/rewrite
   nginx:
-    image: ${VCW_REGISTRY}vcw/nginx.base:${VCW_TAG}
+    image: ${VCW_REGISTRY}vcw/nginx.base:1.19.3
     environment: ['VCW_STACK_NGINX_CONF_LOCATION=${VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_PATH}', 'VCW_STACK_NGINX_CONF_PROXY_PASS=${VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_UPSTREAM}']
     command: []
     volumes: []

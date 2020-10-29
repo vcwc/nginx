@@ -4,7 +4,7 @@ services:
 
 # START SERVICE vcwc/nginx
   nginx:
-    image: ${VCW_REGISTRY}nginx:${VCW_TAG}
+    image: ${VCW_REGISTRY}nginx:1.19.3
     environment: []
     command: []
     volumes: []
