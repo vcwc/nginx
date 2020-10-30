@@ -26,15 +26,15 @@ export VCW_STACK_GLOBAL_SERVICE_NAME="nginx"
 export VCW_STACK_GLOBAL_IMAGE_NAME="nginx"
 export VCW_STACK_NGINX_ENVIRONMENT=
 export VCW_STACK_NGINX_COMMAND=
-export VCW_STACK_NGINX_NETWORKS="${DOLLAR}{VCW_STACK_NETWORKGLOBAL}_overlay, ${DOLLAR}{VCW_STACK_NETWORKLOCAL}_overlay"
+export VCW_STACK_NGINX_NETWORKS="${DOLLAR}{VCW_STACK_GLOBAL_NETWORKGLOBAL}_overlay, ${DOLLAR}{VCW_STACK_GLOBAL_NETWORKLOCAL}_overlay"
 export VCW_STACK_NGINX_VOLUMES=
 export VCW_STACK_NGINX_DEPLOY_MODE="replicated"
-export VCW_STACK_GLOBAL_NETWORKS="${DOLLAR}{VCW_STACK_NETWORKGLOBAL}_overlay: { external: true }, ${DOLLAR}{VCW_STACK_NETWORKLOCAL}_overlay: { external: true }"
+export VCW_STACK_GLOBAL_NETWORKS="${DOLLAR}{VCW_STACK_GLOBAL_NETWORKGLOBAL}_overlay: { external: true }, ${DOLLAR}{VCW_STACK_GLOBAL_NETWORKLOCAL}_overlay: { external: true }"
 export VCW_STACK_GLOBAL_VOLUMES=
 # END GLOBAL SETTINGS
 
 # START SETTINGS nginx.base
-export VCW_STACK_NGINX_COMPOSE_EXTENSIONS="      labels: [traefik.enable=true, traefik.http.services.${VCW_STACK_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${VCW_STACK_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${VCW_STACK_STACKPREFIX}_nginx.rule=PathPrefix(\"/${VCW_STACK_URLPREFIX}\")]${newline}${DOLLAR}{VCW_STACK_NGINX_COMPOSE_EXTENSIONS}"
+export VCW_STACK_NGINX_COMPOSE_EXTENSIONS="      labels: [traefik.enable=true, traefik.http.services.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.rule=PathPrefix(\"/${VCW_STACK_GLOBAL_URLPREFIX}\")]${newline}${DOLLAR}{VCW_STACK_NGINX_COMPOSE_EXTENSIONS}"
 export VCW_STACK_NGINX_PORTS=
 export VCW_STACK_NGINX_DEPLOY_RESOURCES_LIMITS_MEMORY="64m"
 export VCW_STACK_NGINX_DEPLOY_RESOURCES_RESERVATIONS_MEMORY="16m"

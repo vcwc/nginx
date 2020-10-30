@@ -11,7 +11,7 @@ export VCW_STACK_GLOBAL_VOLUME_INITIALISED=""
 # END CONFIGURATION
 
 # START MODULE SETTINGS
-export VCW_STACK_NGINX_COMPOSE_EXTENSIONS="      labels: [traefik.enable=true, traefik.http.services.${VCW_STACK_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${VCW_STACK_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${VCW_STACK_STACKPREFIX}_nginx.rule=PathPrefix(\"/${VCW_STACK_URLPREFIX}\")]${newline}${DOLLAR}{VCW_STACK_NGINX_COMPOSE_EXTENSIONS}"
+export VCW_STACK_NGINX_COMPOSE_EXTENSIONS="      labels: [traefik.enable=true, traefik.http.services.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.rule=PathPrefix(\"/${VCW_STACK_GLOBAL_URLPREFIX}\")]${newline}${DOLLAR}{VCW_STACK_NGINX_COMPOSE_EXTENSIONS}"
 # END MODULE SETTINGS
 
 # START VOLUMES SETTINGS

@@ -6,14 +6,14 @@ export VCW_STACK_GLOBAL_PACKAGE_TAG="1.19.3"
 export VCW_STACK_GLOBAL_STACKNAMES="vcw_stack_url_rewrite"
 export VCW_STACK_GLOBAL_BOOTSTACKS="vcw_stack_url_rewrite"
 export VCW_STACK_GLOBAL_RUNSTACKS=""
-export VCW_STACK_GLOBAL_VOLUME_LIST="${VCW_STACK_STACKPREFIX}_nginx_config_volume"
-export VCW_STACK_GLOBAL_VOLUME_INITIALISED="${VCW_STACK_STACKPREFIX}_nginx_config_volume:/vcw/pwd"
+export VCW_STACK_GLOBAL_VOLUME_LIST="${VCW_STACK_GLOBAL_STACKPREFIX}_nginx_config_volume"
+export VCW_STACK_GLOBAL_VOLUME_INITIALISED="${VCW_STACK_GLOBAL_STACKPREFIX}_nginx_config_volume:/vcw/pwd"
 # END CONFIGURATION
 
 # START MODULE SETTINGS
-export VCW_STACK_URL_REWRITE_COMPOSE_EXTENSIONS="      labels: [traefik.enable=true,traefik.docker.network=${VCW_STACK_NETWORKGLOBAL}_overlay, traefik.http.services.${VCW_STACK_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${VCW_STACK_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${VCW_STACK_STACKPREFIX}_nginx.rule=PathPrefix(\"/${VCW_STACK_URLPREFIX}/streamsets\")]"
-export VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_PATH="/${VCW_STACK_URLPREFIX}/streamsets"
-export VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_UPSTREAM="${VCW_STACK_STACKPREFIX}_streamsets:18630"
+export VCW_STACK_URL_REWRITE_COMPOSE_EXTENSIONS="      labels: [traefik.enable=true,traefik.docker.network=${VCW_STACK_GLOBAL_NETWORKGLOBAL}_overlay, traefik.http.services.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.loadbalancer.server.port=80, traefik.http.routers.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.entrypoints=conteco, traefik.http.routers.${VCW_STACK_GLOBAL_STACKPREFIX}_nginx.rule=PathPrefix(\"/${VCW_STACK_GLOBAL_URLPREFIX}/streamsets\")]"
+export VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_PATH="/${VCW_STACK_GLOBAL_URLPREFIX}/streamsets"
+export VCW_STACK_URL_REWRITE_ENVIRONMENT_CONF_UPSTREAM="${VCW_STACK_GLOBAL_STACKPREFIX}_streamsets:18630"
 # END MODULE SETTINGS
 
 # START VOLUMES SETTINGS
